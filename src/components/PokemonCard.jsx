@@ -1,8 +1,10 @@
 import React from 'react';
 
-function PokemonCard() {
+function PokemonCard(props) {
+    console.log(props); // Affiche les props dans la console
+
     // Utilisation du premier Pokémon de la liste
-    const pokemon = pokemonList[0];
+    const pokemon = props;
 
     return (
         <figure>
@@ -17,16 +19,6 @@ function PokemonCard() {
     );
 }
 
-const pokemonList = [
-    {
-      name: "Bulbasaur",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
-    {
-      name: "Mew",
-      imgSrc: null, // Mew n'a pas d'image définie
-    },
-];
+
 
 export default PokemonCard;
