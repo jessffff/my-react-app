@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PokemonCard from './components/PokemonCard' // Assurez-vous que le chemin d'importation est correct
+import PokemonCard from './components/PokemonCard' 
 
 import './App.css'
 
@@ -17,12 +17,27 @@ const pokemonList = [
 
 
 function App() {
+  const [pokemonIndex, setPokemonIndex] = useState(0);
+
+  const handlePrev = () => {
+      if (pokemonIndex > 0) setPokemonIndex(pokemonIndex - 1);
+  };
+
+  const handleNext = () => {
+      if (pokemonIndex < pokemonList.length - 1) setPokemonIndex(pokemonIndex + 1);
+  };
+
   return (
-    <div>
-      <PokemonCard pokemon={pokemonList[0]} />
-    </div>
+      <div>
+          {pokemonIndex > 0 && (
+              <button onClick={handlePrev}>Précédent</button>
+          )}
+          {pokemonIndex < pokemonList.length - 1 && (
+              <button onClick={handleNext}>Suivant</button>
+          )}
+          <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      </div>
   );
 }
 
-
-export default App
+export default App;
