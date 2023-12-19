@@ -1,14 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function PokemonCard(props) {
-    console.log(props); // Affiche les props dans la console
-
-    // Utilisation du premier Pokémon de la liste
-    const pokemon = props;
-
+function PokemonCard({ pokemon }) {
     return (
         <figure>
-            {/* Affichage conditionnel de l'image ou du texte '???' */}
             {pokemon.imgSrc ? (
                 <img src={pokemon.imgSrc} alt={pokemon.name} />
             ) : (
@@ -19,6 +14,13 @@ function PokemonCard(props) {
     );
 }
 
-
+// Définition des types de props
+PokemonCard.propTypes = {
+    pokemon: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        imgSrc: PropTypes.string
+    }).isRequired
+};
 
 export default PokemonCard;
+
