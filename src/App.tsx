@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PokemonCard from './components/PokemonCard' // Assurez-vous que le chemin d'importation est correct
+import PokemonCard from './components/PokemonCard' 
 
 import './App.css'
 
